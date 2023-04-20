@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_list">목록 없음</string>
+    <string name="file_name">파일 이름</string>
+    <string name="exit">종료</string>
+    <string name="file_type">파일 타입</string>
+    <string name="all">all</string>
+    <string name="pdf">pdf</string>
+    <string name="hwp">hwp</string>
+    <string name="file_list">파일 목록</string>
+    <string name="find">찾기</string>
+    <string name="doc">doc</string>
+    <string name="txt">txt</string>
+</resources>

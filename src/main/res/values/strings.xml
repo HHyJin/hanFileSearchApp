@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BrailleSense SDK Sample</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_list">ListActivity</string>
+    <string name="title_activity_combo_box">ComboBoxActivity</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_progress">ProgressActivity</string>
+    <string name="title_activity_list_option_select">ListOptionSelectActivity</string>
+    <string name="title_activity_buttons">ButtonsActivity</string>
+    <string name="title_activity_dialog">DialogActivity</string>
+
+    <string name="activity_1">App/Activity/Overscan</string>
+    <string name="activity_2">App/Activity/Overscan2</string>
+
+    <string name="menu_1">Menu 1</string>
+    <string name="menu_2">Menu 2</string>
+    <string name="menu_3">Menu 3</string>
+    <string name="menu_4">Menu 4</string>
+    <string name="menu_5">Menu 5</string>
+    <string name="menu_1_1">Menu 11</string>
+    <string name="menu_1_2">Menu 12</string>
+    <string name="menu_1_3">Menu 13</string>
+    <string name="menu_1_4">Menu 14</string>
+
+    <string name="file_list">File List</string>
+    <string name="no_list">No List</string>
+    <string name="file_name">File Name</string>
+    <string name="find">Find</string>
+    <string name="exit">Exit</string>
+    <string name="file_type">File Type</string>
+    <string name="all">all</string>
+    <string name="doc">doc</string>
+    <string name="pdf">pdf</string>
+    <string name="hwp">hwp</string>
+    <string name="txt">txt</string>
+</resources>

@@ -1,0 +1,141 @@
+//import org.tmatesoft.svn.core.wc.*
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        } // or mavenCentral()
+    }
+    ext.kotlin_version='1.3.31'
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.6.2"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: "org.sonarqube"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+
+    signingConfigs {
+        debug {
+            keyAlias 'androidreleasekey'
+            keyPassword 'hims9901'
+            storeFile file('certs/platform.jks')
+            storePassword 'hims9901'
+        }
+
+        release {
+            keyAlias 'androidreleasekey'
+            keyPassword 'hims9901'
+            storeFile file('certs/platform.jks')
+            storePassword 'hims9901'
+        }
+    }
+
+    compileSdkVersion 22
+    buildToolsVersion '26.0.2'
+
+    defaultConfig {
+        applicationId "com.jawon.han.example"
+        minSdkVersion 22
+//        targetSdkVersion 22
+        multiDexEnabled true
+        versionCode 53
+        versionName "7.0.11"	
+
+        sourceSets.main {
+            jniLibs.srcDir 'src/main/libs'
+            jni.srcDirs = []
+        }
+    }
+    android {
+        packagingOptions {
+            exclude("META-INF/DEPENDENCIES")
+            exclude("META-INF/LICENSE")
+            exclude("META-INF/LICENSE.txt")
+            exclude("META-INF/license.txt")
+            exclude("META-INF/NOTICE")
+            exclude("META-INF/NOTICE.txt")
+            exclude("META-INF/notice.txt")
+            exclude("META-INF/ASL2.0")
+            exclude("META-INF/*.kotlin_module")
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            testCoverageEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            debuggable true
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            testCoverageEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    tasks.all {
+        task -> if (task.name.contains('mockableAndroidJar'))
+                task.enabled = false
+    }
+
+    task publish(dependsOn: ['assembleRelease', 'assembleDebug']) << {
+
+    }
+    
+    lintOptions {
+        abortOnError false
+    }
+}
+
+project(":hanLibrary-release") {
+    sonarqube {
+        skipProject = true
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.sourceEncoding", "UTF-8"
+		property "sonar.host.url", "http://10.21.0.138:9000"
+		property "sonar.login", "8a371a46fcb9fb11b3ee22c9e1d3ac1d584c7e5f"
+		property "sonar.scm.disabled", "True"
+    }
+}
+
+dependencies {
+    compile project(':hanLibrary-release')
+
+    compile files('libs/opencv_library-2.4.3.jar')
+
+//    compile 'com.android.support:support-v4:22.2.1'
+//    compile 'com.android.support:appcompat-v7:22.2.1'
+//    compile 'com.android.support:recyclerview-v7:22.2.1'
+
+    compile 'com.google.android.gms:play-services-auth:16.0.1'
+    compile 'com.google.http-client:google-http-client-gson:1.26.0'
+    compile('com.google.api-client:google-api-client-android:1.26.0') {
+        exclude group: 'org.apache.httpcomponents'
+    }
+compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version" }

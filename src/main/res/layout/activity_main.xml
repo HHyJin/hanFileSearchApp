@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.jawon.han.widget.HanEditText
+        android:id="@+id/editTextCurrentDir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <com.jawon.han.widget.HanTextView
+        android:id="@+id/textViewList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/file_list"
+        />
+
+    <com.jawon.han.widget.HanListView
+        android:id="@+id/ListVIewFileList"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:labelFor="@id/textViewList"
+        ></com.jawon.han.widget.HanListView>
+
+    <com.jawon.han.widget.HanListEmptyView
+        android:id="@+id/ListViewNoItem"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:focusable="true"
+        android:labelFor="@+id/textViewList"
+        android:text="@string/no_list" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.jawon.han.widget.HanTextView
+            android:id="@+id/textViewFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/file_name"
+            />
+
+        <com.jawon.han.widget.HanEditText
+            android:id="@+id/editTextFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:labelFor="@+id/textViewFileName"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.jawon.han.widget.HanButton
+            android:id="@+id/buttonFind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/find"
+            android:textColor="@color/black" />
+
+        <com.jawon.han.widget.HanButton
+            android:id="@+id/buttonExit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            android:textColor="@color/black" />
+
+        <com.jawon.han.widget.HanTextView
+            android:id="@+id/textViewFileType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/file_type" />
+
+        <com.jawon.han.widget.HanRadioGroup
+            android:id="@+id/radioGroupFileType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:labelFor="@id/textViewFileType"
+            >
+
+            <RadioButton
+                android:id="@+id/radioButtonFileType1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="@string/all" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFileType2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="@string/txt" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFileType3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="@string/doc" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFileType4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="@string/pdf" />
+
+            <RadioButton
+                android:id="@+id/radioButtonFileType5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:text="@string/hwp" />
+
+        </com.jawon.han.widget.HanRadioGroup>
+    </LinearLayout>
+
+</LinearLayout>
